@@ -1,6 +1,24 @@
-
 /**
  * MainApp
+ * 
+ * La classe MainApp fornisce un'interfaccia utente testuale per eseguire operazioni su una stringa di input fornita.
+ * Gli utenti possono scegliere tra le seguenti opzioni:
+ * 1. **Conta Consonanti:** Conta il numero di consonanti nella stringa di input.
+ * 2. **Converti in Maiuscolo:** Converte la stringa di input in maiuscolo, dove la prima lettera di ogni parola è in maiuscolo.
+ * 3. **Esci:** Chiude il programma.
+ * 
+ * Come utilizzare:
+ * 1. Esegui il programma.
+ * 2. Inserisci un nome in minuscolo quando richiesto.
+ * 3. Seleziona un'opzione dal menu per eseguire l'operazione desiderata sulla stringa di input.
+ * 
+ * Metodi della Classe:
+ * 
+ * @param input La stringa di input
+ * @return Il numero di consonanti nella stringa di input.
+ * 
+ * @param input La stringa di input
+ * @return La stringa di input convertita in maiuscolo con la prima lettera di ogni parola in maiuscolo.
  */
 
 public class MainApp {
@@ -20,7 +38,7 @@ public class MainApp {
                     System.out.println(contaConsonanti(input)); // conta le consonanti presenti
                     break;
                 case 2:
-                    System.out.println(toTitle(input)); // trasforma ciascuna parola all'interno in uppercase
+                    System.out.println(convertiMaiuscolo(input)); // trasforma ciascuna parola all'interno in uppercase
                     break;
                 case 3:
                     Chooser.sc.close(); // chiudiamo scanner
@@ -31,13 +49,24 @@ public class MainApp {
     }
 
     /**
-     * @param input -> stringa in input
-     * @return lunghezza della stringa con consonanti
+     * Conta il numero di consonanti nella stringa di input.
+     * 
+     * @param input La stringa di input.
+     * @return Il numero di consonanti nella stringa di input.
      */
     public static int contaConsonanti(String input) {
-        return input.toLowerCase().replaceAll("[aeouiàòèéçù]", "").length();
+        return input.toLowerCase().replaceAll("[aeouiàòèéù]", "").length();
     }
-    public static String toTitle(String input){
+
+    /**
+     * Converte la stringa di input in maiuscolo, mantenendo la maiuscola solo per
+     * il primo carattere di ogni parola.
+     * 
+     * @param input La stringa di input.
+     * @return La stringa di input convertita in maiuscolo con la prima lettera di
+     *         ogni parola in maiuscolo.
+     */
+    public static String convertiMaiuscolo(String input){
         if (input == null || input.isEmpty()) {
             return input;
         }
