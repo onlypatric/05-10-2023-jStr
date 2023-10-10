@@ -55,9 +55,17 @@ public class MainApp {
      * @return Il numero di consonanti nella stringa di input.
      */
     public static int contaConsonanti(String input) {
-        return input.toLowerCase().replaceAll("[aeouiàòèéù]", "").length();
+        return input.toLowerCase().replaceAll("[aeouiìàòèéù]", "").length();
     }
-
+    /**
+     * Conta il numero di vocali nella stringa di input.
+     * 
+     * @param input La stringa di input.
+     * @return Il numero di consonanti nella stringa di input.
+     */
+    public static int contaVocali(String input) {
+        return input.length()-contaConsonanti(input);
+    }
     /**
      * Converte la stringa di input in maiuscolo, mantenendo la maiuscola solo per
      * il primo carattere di ogni parola.
