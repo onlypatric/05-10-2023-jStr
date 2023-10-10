@@ -29,7 +29,7 @@ public class MainApp {
         int scelta; // specifichiamo dove andrà la scelta dell'utente
         while(true){
             do {
-                System.out.print("Inserisci un nome&cognome in minuscolo: ");
+                System.out.print("Inserisci un cognome in minuscolo: ");
                 input = Chooser.sc.nextLine();  // chiediamo all'utente un input "minuscolo"
             } while (!input.equals(input.toLowerCase())); // check dell'input
             scelta = ch.choose(); // fai scegliere all'utente all'interno del menu di scelta
