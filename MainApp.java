@@ -31,7 +31,7 @@ public class MainApp {
             do {
                 System.out.print("Inserisci un cognome in minuscolo: ");
                 input = Chooser.sc.nextLine();  // chiediamo all'utente un input "minuscolo"
-            } while (!input.equals(input.toLowerCase())); // check dell'input
+            } while (!input.equals(input.toLowerCase())||(input.matches(".*[0-9].*"))); // check dell'input
             scelta = ch.choose(); // fai scegliere all'utente all'interno del menu di scelta
             switch(scelta){
                 case 1:
@@ -61,7 +61,7 @@ public class MainApp {
      * Conta il numero di vocali nella stringa di input.
      * 
      * @param input La stringa di input.
-     * @return Il numero di consonanti nella stringa di input.
+     * @return Il numero di vocali nella stringa di input.
      */
     public static int contaVocali(String input) {
         return input.length()-contaConsonanti(input);
@@ -81,13 +81,14 @@ public class MainApp {
 
         StringBuilder result = new StringBuilder();
         boolean makeUppercase = true;
-        String charStr;
+        String charStr; // contiene il carattere sottoforma di stringa, quindi 'a' diventa "a"
 
         for (char ch : input.toCharArray()) {
             charStr = Character.toString(ch);
-            if (charStr.matches("\"|\\'|,|\\.|\\^|\\s+")){ // controlla se " ' , . ^ e lo spazio siano nel carattere
+            if (charStr.matches("\"|\\'|,|\\.|\\s+")){ // controlla se " ' , . e lo spazio siano nel carattere
                 makeUppercase=true; // segnala che il prossimo carattere deve essere maiuscolo
                 result.append(charStr); // aggiunge il carattere alla stringa
+                if(charStr.matches("\\.")){result.append("\n");};
             }
             else {
                 if (makeUppercase) { // se il carattere va reso maiuscolo
